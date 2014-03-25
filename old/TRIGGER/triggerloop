@@ -1,0 +1,11 @@
+#!/bin/tcsh
+
+set count = 0
+
+while ($count < 1000)
+	./trigger 255
+	sleep .01
+	@ count++
+end
+
+
