@@ -17,16 +17,14 @@ SESSIONS = {
     'Comportement',        'comportement'};
 
 %% Default Experiment flags
-flags.with_training          = 1; % with initial training bloc?
+flags.with_training          = 0; % with initial training bloc?
 flags.with_response_lumina   = now>datenum(2014,2,27,8,0,0); % Lumina buttons
 flags.with_response_mouse    = 0; % "Lena"-Mouse buttons
 flags.with_response_keyboard = 0; % Keyboard letters
-flags.with_triggers   = 0; % send triggers on parallel port 
+flags.with_triggers   = 1; % send triggers on parallel port 
 flags.with_eyetracker = strcmpi('HPC3F9',hostname()); % with eye-tracker?
 flags.starting_block  = 1;
-%flags.pause_every_n_blocks = 2;
-flags.with_fullscreen = 1;
-
+flags.pause_every_n_blocks = 2;
 
 %% Useful inline functions
 % Easier screen-blink compatible timing

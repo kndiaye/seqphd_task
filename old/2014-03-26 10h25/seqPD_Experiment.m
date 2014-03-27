@@ -126,12 +126,7 @@ if ~DEBUG
 end
 
 % Open a new Psychtoolbox Screen
-if participant.flags.with_fullscreen
-video = OpenPTBScreen([]);
-else
 video = OpenPTBScreen;
-end
-
 
 % Start the eyetracker
 if participant.flags.with_eyetracker
@@ -827,7 +822,7 @@ function trig=SendTriggerLinux(trig)
 return
 
 
-function video = OpenPTBScreen(frame)
+function video = OpenPTBScreen()
 global DEBUG
 ppd=evalin('caller', 'ppd');
 Screen('CloseAll');
@@ -845,18 +840,16 @@ if DEBUG
 else
     Screen('Preference', 'SkipSyncTests', 0);
 end
-if nargin<1
-    if video.i<=1
-        if DEBUG
-            % In DEBUG mode, we may use the main one, and not full screen
-            if video.i > 0
-                frame = [];
-            else
-                frame = [ video.res.width/6 50 video.res.width/6*5 video.res.height/3*2];
-            end
+if video.i<=1
+    if DEBUG
+        % In DEBUG mode, we may use the main one, and not full screen
+        if video.i > 0
+            frame = [];
         else
-            error('seqPD:SingleMonitor', 'seqPD should run on dual monitor display')
+            frame = [ video.res.width/6 50 video.res.width/6*5 video.res.height/3*2];
         end
+    else
+        error('seqPD:SingleMonitor', 'seqPD should run on dual monitor display')
     end
 end
 
