@@ -1,5 +1,5 @@
 %% Markov chain descriptor %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% SeqGen only accomodate 1 order MM with NState = 3 for the moment
+% SeqGen only accomodate 1 order MM with NState = 3 at the moment
 
 %resultfilename = 'test.mat';
 
